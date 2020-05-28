@@ -33,4 +33,3 @@ wget -O - $PHARO64_VM | bash
 wget -O - $PHARO64_IMAGE | bash
 cd ..
 fi
-
