@@ -9,7 +9,7 @@ PROJECT_FOLDER=$PROJECT_NAME$PHARO_VERSION
 createPackage() {
 BITS=$1
 FILE_NAME=Pharo${PHARO_VERSION:0:1}.${PHARO_VERSION:1:1}-${BITS}bit-$PROJECT_NAME	
-echo "Creating pack $FILE_NAME.zip"
+echo -e "\033[0;32m +++ Creating pack $FILE_NAME.zip\033[0m"
 cd tmp/$PROJECT_FOLDER/pharo$PHARO_VERSION-$BITS
 mv Pharo.image $FILE_NAME.image
 mv Pharo.changes $FILE_NAME.changes

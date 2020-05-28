@@ -8,7 +8,7 @@ PROJECT_FOLDER=$PROJECT_NAME$PHARO_VERSION
 
 installProject() {
 BITS=$1
-echo "Installing $PROJECT_NAME in Pharo $PHARO_VERSION $BITS bit"
+echo -e "\n \033[0;32m +++ Installing $PROJECT_NAME in Pharo ${PHARO_VERSION:0:1} $BITS bit \033[0m \n"
 cd tmp/$PROJECT_FOLDER/pharo$PHARO_VERSION-$BITS
 ./pharo Pharo.image eval --save "$PHARO_SCRIPT"
 cd ../../../
