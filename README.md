@@ -5,9 +5,9 @@ This tool is the easiest way to create Pharo images with your project and releas
 I would like to create images with some projects already installed ([Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings)), to make it easier to deploy them remotely. That way, I could just upload / download the image with the latest version of the project installed to my remote device, Raspberry, Cloud/VPS (virtual private server) like AWS, Azure and run it quickly.
 
 ## How it works
-This is a combination of 3 tools: [Travis CI](https://docs.travis-ci.com/user/tutorial), [uploadtool](https://github.com/probonopd/uploadtool) and this tool (PharoImageCreatorForGithubCi).
+This is a combination of 3 tools: [Travis CI](https://docs.travis-ci.com/user/tutorial), [uploadtool](https://github.com/probonopd/uploadtool) (thanks [probonopd](https://github.com/probonopd)) and this tool (PharoImageCreatorForGithubCi). I'm using my [uploadtool](https://github.com/oliveiraallex/uploadtool) fork to avoid breaking this integration in case of any future changes. 
 
-At each push in your repository, Travis will execute the scripts and a release of your project will be provided on the Release tab with zip files containing Pharo .image, .sources and .changes files, with your project already installed, like this:
+At each push in your repository, Travis will execute the scripts and a release of your project will be provided on the Release tab with zip files containing Pharo .image, .sources and .changes files, with your project already installed, like the image below. You can see it working in [Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings) repositories. 
 
 ![image](https://user-images.githubusercontent.com/39618015/83521318-55a8a780-a4df-11ea-9f66-81cd8b05e74d.png)
 
@@ -58,7 +58,7 @@ Smalltalk saveSession."
   script:
     -  bash PharoImageCreatorForGithubCi/imageCreate.sh
   after_success:
-    - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+    - wget -c https://github.com/probonopd/oliveiraallex/raw/master/upload.sh
     - bash upload.sh result/*
   branches:
     except:
@@ -107,7 +107,7 @@ matrix:
       script:
         -  bash PharoImageCreatorForGithubCi/imageCreate.sh
       after_success:
-        - wget -c https://github.com/probonopd/uploadtool/raw/master/upload.sh
+        - wget -c https://github.com/oliveiraallex/uploadtool/raw/master/upload.sh
         - bash upload.sh result/*
       branches:
         except:
