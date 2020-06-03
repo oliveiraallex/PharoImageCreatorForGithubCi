@@ -27,7 +27,7 @@ fi
 
 # Preparing the Pharo 64 if is setted in conf file
 if [ $ARCH_64 = true ]; then
-echo -e "\n \033[0;32m +++ Downloding Pharo ${PHARO_VERSION:0:1} 32 bit \033[0m \n"
+echo -e "\n \033[0;32m +++ Downloding Pharo ${PHARO_VERSION:0:1} 64 bit \033[0m \n"
 PHARO64_VM=get.pharo.org/64/vm$PHARO_VERSION
 PHARO64_IMAGE=get.pharo.org/64/$PHARO_VERSION
 mkdir -p pharo$PHARO_VERSION-64 && cd pharo$PHARO_VERSION-64
