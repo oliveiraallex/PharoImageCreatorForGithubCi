@@ -2,7 +2,7 @@
 This tool is the easiest way to create Pharo images with your project and release them on Github Releases page (continuous builds, each push). You can chose to create and release images of your project for Pharo 7/8/9 32/64
 
 ## Motivation
-I would like to create images with some projects already installed ([Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings)), to make it easier to deploy them remotely. That way, I could just upload / download the image with the latest version of the project installed to my remote device, Raspberry, Cloud/VPS (virtual private server) like AWS, Azure and run it quickly.
+I would like to create images with some projects already installed ([Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings)), to make it easier to deploy them remotely. That way, I could just upload / download the image with the latest version of the project installed to my remote device, Raspberry, Cloud/VPS (virtual private server) like Amazon AWS, Microsoft Azure and run it quickly.
 
 ## How it works
 This is a combination of 3 tools: [Travis CI](https://docs.travis-ci.com/user/tutorial), [uploadtool](https://github.com/probonopd/uploadtool) (thanks [probonopd](https://github.com/probonopd)) and this tool (PharoImageCreatorForGithubCi). I'm using my [uploadtool](https://github.com/oliveiraallex/uploadtool) fork to avoid breaking this integration in case of any future changes. 
@@ -58,7 +58,7 @@ Smalltalk saveSession."
   script:
     -  bash PharoImageCreatorForGithubCi/imageCreate.sh
   after_success:
-    - wget -c https://github.com/probonopd/oliveiraallex/raw/master/upload.sh
+    - wget -c https://github.com/oliveiraallex/oliveiraallex/raw/master/upload.sh
     - bash upload.sh result/*
   branches:
     except:
