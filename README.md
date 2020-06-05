@@ -5,9 +5,13 @@ This tool is the easiest way to create Pharo images with your project and releas
 I would like to create images with some projects already installed ([Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings)), to make it easier to deploy them remotely. That way, I could just upload / download the image with the latest version of the project installed to my remote device, Raspberry, Cloud/VPS (virtual private server) like Amazon AWS, Microsoft Azure and run it quickly.
 
 ## How it works
-This is a combination of 3 tools: [Travis CI](https://docs.travis-ci.com/user/tutorial), [uploadtool](https://github.com/probonopd/uploadtool) (thanks [probonopd](https://github.com/probonopd)) and this tool (PharoImageCreatorForGithubCi). I'm using my [uploadtool](https://github.com/oliveiraallex/uploadtool) fork to avoid breaking this integration in case of any future changes. 
+This is a combination of 3 tools: [Travis CI](https://docs.travis-ci.com/user/tutorial), [uploadtool](https://github.com/probonopd/uploadtool) (thanks [probonopd](https://github.com/probonopd)) and this tool (PharoImageCreatorForGithubCi). I'm using my [uploadtool](https://github.com/oliveiraallex/uploadtool) fork to avoid breaking this integration in case of any future changes in the official repository. 
 
-At each push in your repository, Travis will execute the scripts and a release of your project will be provided on the Release tab with zip files containing Pharo .image, .sources and .changes files, with your project already installed, like the image below. You can see it working in [Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings) repositories. 
+At each push in your repository, Travis will execute the scripts and a release of your project will be provided on the Release tab with zip files containing Pharo .image, .sources and .changes files, with your project already installed, like the image below. 
+
+You can also run it on your local machine (Mac OSX, Linux) and view the .zip files in `result` folder.
+
+You can see it working in [Telepharo](https://github.com/pharo-ide/TelePharo) and [PharoThings](https://github.com/pharo-iot/PharoThings) repositories. 
 
 ![image](https://user-images.githubusercontent.com/39618015/83521318-55a8a780-a4df-11ea-9f66-81cd8b05e74d.png)
 
@@ -117,3 +121,11 @@ matrix:
 
 You can also use the download link to always download the last version: https://github.com/MY_USER/MY_PROJECT/download/continuous/Pharo8.0-64bit-MyProject.zip
 
+## Run it in your local machine (Mac OSX, Linux)
+You can also run this script in your local machine and generate the images of your project in your hard drive. 
+
+1. Clone this repository with `git clone https://github.com/oliveiraallex/PharoImageCreatorForGithubCi.git`
+
+2. Go to the project folder and change the file `.imageConf.sh` according to your preferences. 
+
+3. Run the script `./imageCreate.sh`
